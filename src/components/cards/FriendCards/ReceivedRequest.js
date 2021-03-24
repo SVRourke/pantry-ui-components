@@ -9,14 +9,13 @@ import {
   AcceptButton,
   DeclineButton,
   Row
-} from "./CardElements";
+} from "../CardElements";
 
-const InviteCard = ({ listname, invitor, time, membercount }) => {
+const ReceivedFriendRequest = ({ requestor, time }) => {
   return (
     <CardBody>
-      <CardHeading>{listname}</CardHeading>
-      <RequestorDisplay>{invitor}</RequestorDisplay>
-      <MemberCount>{membercount} members</MemberCount>
+      <CardHeading>{requestor}</CardHeading>
+      <TimeDisplay>{time} ago</TimeDisplay>
       <Row>
         <AcceptButton>accept</AcceptButton>
         <DeclineButton>decline</DeclineButton>
@@ -25,4 +24,4 @@ const InviteCard = ({ listname, invitor, time, membercount }) => {
   );
 };
 
-export default InviteCard;
+export default ReceivedFriendRequest;

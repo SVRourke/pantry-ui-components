@@ -5,7 +5,7 @@ import {
   TimeDisplay,
   MutualLists,
   Row
-} from "./CardElements";
+} from "../CardElements";
 const FriendCard = ({ name, time, listcount }) => {
   return (
     <CardBody>

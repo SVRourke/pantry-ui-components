@@ -11,21 +11,20 @@ import {
   InvitedDisplay,
   RequestCancel,
   Row
-} from "./CardElements";
+} from "../CardElements";
 
-const SentListInvite = ({ username, listname, time }) => {
+const SentFriendRequest = ({ username, time }) => {
   const style = { color: "#cccccc" };
 
   return (
     <CardBody>
       <CardHeading style={style}>{username}</CardHeading>
       <Row>
-        <InvitedDisplay style={style}>{listname}</InvitedDisplay>
+        <TimeDisplay style={style}>{time} ago</TimeDisplay>
         <RequestCancel>cancel?</RequestCancel>
       </Row>
-      <TimeDisplay style={style}>{time} ago</TimeDisplay>
     </CardBody>
   );
 };
 
-export default SentListInvite;
+export default SentFriendRequest;
