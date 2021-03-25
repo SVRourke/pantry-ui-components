@@ -1,20 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import SentRequest from "../cards/FriendCards/SentRequest";
-import ReceivedRequest from "../cards/FriendCards/ReceivedRequest";
+import Request from "../cards/FriendCards/Request";
 
 const Container = styled.div``;
 
-export const RequestList = ({ records, filter }) => {
-  let cards;
-  if (filter === "received") {
-    cards = records.map((r, i) => (
-      <ReceivedRequest key={i} requestor={r.name} time={r.record_age} />
-    ));
-  } else {
-    cards = records.map((r, i) => (
-      <SentRequest key={i} username={r.name} time={r.record_age} />
-    ));
-  }
+export const RequestList = (props) => {
+  const { records, accept, decline, cancel } = props;
+  const cards = records.map((r, i) => <Request key={i} record={r} />);
+
   return <>{cards}</>;
 };
+
+// records
+// accept
+// decline
+// cancel

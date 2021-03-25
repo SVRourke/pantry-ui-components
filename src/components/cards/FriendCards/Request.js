@@ -61,7 +61,7 @@ const Request = (props) => {
       </Row>
 
       <Row>
-        <AcceptButton displayType={type} onClick={(event) => accept(event)}>
+        <AcceptButton displayType={type} onClick={(event) => accept(id)}>
           accept
         </AcceptButton>
         <DeclineButton displayType={type} onClick={(event) => decline(event)}>

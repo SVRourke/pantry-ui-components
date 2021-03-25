@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import RequestListControls from "./RequestListControls";
-import { RequestList } from "./RequestList";
-
-import SentRequest from "../cards/FriendCards/SentRequest";
-import ReceivedRequest from "../cards/FriendCards/ReceivedRequest";
+import Request from "../cards/FriendCards/Request";
 
 class RequestListContainer extends Component {
   constructor(props) {
@@ -11,19 +8,45 @@ class RequestListContainer extends Component {
     this.state = { filter: "received" };
   }
 
-  handleClick = (event) => {
+  filterChange = (event) => {
     this.setState({
       filter: event.target.id
     });
   };
 
+  handleAccept = (event) => {
+    console.log("#{} Request Accepted");
+  };
+  handleDecline = (event) => {
+    console.log("Request Declined");
+  };
+  handleCancel = (event) => {
+    console.log("Request Cancelled");
+  };
+
   render() {
-    const recs = this.props.records.filter((r) => r.type !== this.state.filter);
+    const { records } = this.props;
+    const filteredRecords = records.filter((r) => r.type === this.state.filter);
+    const cards = filteredRecords.map((r, i) => {
+      return (
+        <Request
+          key={i}
+          record={r}
+          accept={this.handleAccept}
+          decline={this.handleDecline}
+          cancel={this.handleCancel}
+        />
+      );
+    });
 
     return (
       <>
-        <RequestListControls filter={this.state.filter} cb={this.handleClick} />
-        <RequestList records={recs} filter={this.state.filter} />
+        <RequestListControls
+          filter={this.state.filter}
+          cb={this.filterChange}
+        />
+
+        {cards}
       </>
     );
   }
