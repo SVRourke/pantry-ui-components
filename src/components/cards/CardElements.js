@@ -11,6 +11,7 @@ const CardBody = styled.div`
 const CardHeading = styled.h3`
   font-size: 2.7rem;
   font-weight: 600;
+  color: inherit;
 `;
 
 const UnFriend = styled.button`
@@ -31,6 +32,7 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-content: baseline;
+  color: inherit;
 `;
 
 const MutualLists = styled.p`
@@ -41,6 +43,7 @@ const MemberCount = styled.p`
 `;
 const TimeDisplay = styled.p`
   font-weight: 500;
+  color: inherit;
 `;
 
 const RequestorDisplay = styled.p`

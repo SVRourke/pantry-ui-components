@@ -4,11 +4,10 @@ import ListCard from "./components/cards/ListCards/ListCard";
 
 import InviteCard from "./components/cards/ListCards/InviteCard";
 import SentListInvite from "./components/cards/ListCards/SentListInvite";
-import SentFriendRequest from "./components/cards/FriendCards/SentRequest";
-import ReceivedFriendRequest from "./components/cards/FriendCards/ReceivedRequest";
 import ListContributorCard from "./components/cards/ListCards/ListContributorCard";
 import RequestListContainer from "./components/requestList/RequestListContainer";
 
+import Request from "./components/cards/FriendCards/Request";
 import styled from "styled-components";
 
 const Column = styled.div`
@@ -20,17 +19,46 @@ const Column = styled.div`
 `;
 
 export default function App() {
-  const records = [
-    { name: "asda", record_age: "1 day", type: "sent" },
-    { name: "sdvsv", record_age: "30 minutes", type: "received" },
-    { name: "rfrg", record_age: "1 month", type: "sent" },
-    { name: "rtg", record_age: "2 weeks", type: "sent" },
-    { name: "weq", record_age: "5 days", type: "sent" },
-    { name: "ert", record_age: "3 minuts", type: "received" }
+  const testRecord = [
+    {
+      id: 3,
+      requestor_id: 5,
+      requestor_name: "Jake",
+      requestee_name: "Sam",
+      type: "received",
+      record_age: "1 days"
+    },
+    {
+      id: 6,
+      requestor_id: 1,
+      requestor_name: "Sam",
+      requestee_name: "Autumn",
+      type: "sent",
+      record_age: "1 hour"
+    },
+    {
+      id: 2,
+      requestor_id: 1,
+      requestor_name: "Sam",
+      requestee_name: "Maya",
+      type: "sent",
+      record_age: "1 hour"
+    },
+    {
+      id: 3,
+      requestor_id: 5,
+      requestor_name: "Rain",
+      requestee_name: "Sam",
+      type: "received",
+      record_age: "1 days"
+    }
   ];
+
   return (
     <Column>
-      <RequestListContainer records={records} />
+      <br />
+      <p>Friend Request Filtered List</p>
+      <RequestListContainer records={testRecord} />
       <br />
       <p>Recieved List Invite</p>
       <InviteCard
@@ -56,11 +84,11 @@ export default function App() {
 
       <br />
       <p>Sent Friend request</p>
-      <SentFriendRequest username={"Jake Parsons"} time={"15 minutes"} />
+      <Request record={testRecord[1]} />
 
       <br />
       <p>received friend request</p>
-      <ReceivedFriendRequest requestor={"Joe Schmo"} time={"10 days"} />
+      <Request record={testRecord[0]} />
 
       <br />
       <p>List Card</p>
