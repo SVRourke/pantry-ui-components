@@ -15,7 +15,7 @@ class RequestListContainer extends Component {
   };
 
   handleAccept = (event) => {
-    console.log("#{} Request Accepted");
+    console.log(`${event} Request Accepted`);
   };
   handleDecline = (event) => {
     console.log("Request Declined");
